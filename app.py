@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 import joblib
 import config
 
@@ -20,5 +20,5 @@ def predict():
     return jsonify({'sentiment': 'positive' if prediction == 1 else 'negative'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
 
