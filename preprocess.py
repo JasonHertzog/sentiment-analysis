@@ -2,9 +2,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 import joblib
+import config
 
-# Path to the dataset
-dir = "data/"
+# Get directory from config
+dir = config.dir
 
 # Load the dataset
 data = pd.read_csv(dir + 'IMDB Dataset.csv')

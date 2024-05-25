@@ -1,9 +1,10 @@
 import joblib
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+import config
 
 # Directory to the data
-dir = "data/"
+dir = config.dir
 
 # Load the preprocessed data
 X_train, X_test, y_train, y_test = joblib.load(dir+'data.pkl')
