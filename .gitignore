@@ -1,3 +1,7 @@
+env/
 venv/
 .DS_Store/
+data/combined_preprocessed.csv
+data/combined_preprocessed_data.csv
+data/imdb_preprocessed.csv
 .env

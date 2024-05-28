@@ -2,39 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sentiment Analysis</title>
+    <style>
+        .positive {
+            color: blue;
+        }
+        .negative {
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sentiment Analysis</h1>
-    <form id="review-form">
-        <label for="review">Enter a review:</label>
-        <textarea id="review" name="review" rows="4" cols="50"></textarea>
-        <button type="submit">Submit</button>
+    <h2>Sentiment Analysis Models</h2>
+    <form action="/" method="post">
+        <input type="text" name="review" placeholder="Enter your review" required>
+        <button type="submit">Predict Sentiment</button>
     </form>
-    <div id="result"></div>
-    
+    <div>
+        <h3>Model trained on IMDB dataset</h3>
+        <p class="{{ 'positive' if old_result == 'Positive' else 'negative' }}">{{ old_result }}</p>
+    </div>
+    <div>
+        <h3>Model trained on IMDB and Sentiment140 dataset</h3>
+        <p class="{{ 'positive' if combined_result == 'Positive' else 'negative' }}">{{ combined_result }}</p>
+    </div>
     <h2>Training Information</h2>
-    <p>This sentiment analysis model was trained using the <a href="https://www.kaggle.com/datasets/vishakhdapat/imdb-movie-reviews/data" target="_blank">IMDb Movie Reviews Dataset</a>. The dataset consists of 50,000 movie reviews labeled as positive or negative.</p>
-    <p>The model was built using the Logistic Regression method, a type of regression analysis used for predicting the outcome of a categorical dependent variable based on one or more predictor variables. Learn more about Logistic Regression on <a href="https://en.wikipedia.org/wiki/Logistic_regression" target="_blank">Wikipedia</a>.</p>
-
-    <a href="https://jasonhertzog.github.io" target="_blank">Visit my website</a>
-
-    <script>
-        document.getElementById('review-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const review = document.getElementById('review').value;
-            const response = await fetch('/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ review })
-            });
-            const result = await response.json();
-            document.getElementById('result').innerText = 'Sentiment result: ' + result.sentiment;
-        });
-    </script>
+    <p>This sentiment analysis model was trained using the <a href="https://www.kaggle.com/datasets/vishakhdapat/imdb-movie-reviews">IMDb Movie Reviews Dataset</a>. The dataset consists of almost 50,000 movie reviews labeled as positive or negative.</p> 
+    <p>I also used the sentiment140 data set to see if better generalizations could be made given much more data. It contains 1.6M tweets that were annotated as negative, neutral, or positive. For our use we only care about positive and negative. <a href="https://www.kaggle.com/datasets/kazanova/sentiment140">Sentiment140 data set.</a>
+    <p>The model was built using the Logistic Regression method, a type of regression analysis used for predicting the outcome of a categorical dependent variable based on one or more predictor variables. Learn more about Logistic Regression on <a href="https://en.wikipedia.org/wiki/Logistic_regression">Wikipedia</a>.</p>
+    <p><a href="https://jasonhertzog.github.io/">Visit my website</a></p>
+    <h2>Which model performed better for your prompts?</h2>
+    <!-- TODO - Add more. -->
 </body>
 </html>
-
