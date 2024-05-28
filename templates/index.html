@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-<<<<<<< HEAD
     <title>Sentiment Analysis</title>
     <style>
         .positive {
@@ -36,41 +35,3 @@
     <!-- TODO - Add more. -->
 </body>
 </html>
-=======
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sentiment Analysis</title>
-</head>
-<body>
-    <h1>Sentiment Analysis</h1>
-    <form id="review-form">
-        <label for="review">Enter a review:</label>
-        <textarea id="review" name="review" rows="4" cols="50"></textarea>
-        <button type="submit">Submit</button>
-    </form>
-    <div id="result"></div>
-    
-    <h2>Training Information</h2>
-    <p>This sentiment analysis model was trained using the <a href="https://www.kaggle.com/datasets/vishakhdapat/imdb-movie-reviews/data" target="_blank">IMDb Movie Reviews Dataset</a>. The dataset consists of 50,000 movie reviews labeled as positive or negative.</p>
-    <p>The model was built using the Logistic Regression method, a type of regression analysis used for predicting the outcome of a categorical dependent variable based on one or more predictor variables. Learn more about Logistic Regression on <a href="https://en.wikipedia.org/wiki/Logistic_regression" target="_blank">Wikipedia</a>.</p>
-
-    <a href="https://jasonhertzog.github.io" target="_blank">Visit my website</a>
-
-    <script>
-        document.getElementById('review-form').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const review = document.getElementById('review').value;
-            const response = await fetch('/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ review })
-            });
-            const result = await response.json();
-            document.getElementById('result').innerText = 'Sentiment result: ' + result.sentiment;
-        });
-    </script>
-</body>
-</html>
-
->>>>>>> 1dba52abeb86358e14ad09c41672dfc8341ea0ac
