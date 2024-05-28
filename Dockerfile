@@ -2,12 +2,15 @@ FROM python:3.8-slim
 
 WORKDIR /app
 
-# Copy and install the requirements
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+# Copy only the necessary files first to leverage Docker cache
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the code into the container
+# Copy the rest of the application code
 COPY . .
+
+# Remove unnecessary files to reduce image size
+RUN rm -rf __pycache__ .DS_Store venv .git
 
 EXPOSE 5000
 
