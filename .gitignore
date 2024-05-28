@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 env/
 venv/
 .DS_Store/
@@ -16,4 +17,8 @@ data/sentiment_model.pkl
 sentiment_model_imdb.joblib
 sentiment_model_combined.joblib
 sentiment_model.joblib
+=======
+venv/
+.DS_Store/
+>>>>>>> 1dba52abeb86358e14ad09c41672dfc8341ea0ac
 .env
