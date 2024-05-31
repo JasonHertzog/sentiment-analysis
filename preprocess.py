@@ -14,6 +14,7 @@ def preprocess_sentiment140():
     data = data[data['target'].isin([0, 4])]
     data['target'] = data['target'].map({0: 0, 4: 1})
     data = data[['text', 'target']]
+    data.to_csv('data/sentiment140_preprocessed.csv', index=False)
     return data
 
 def preprocess_all():
