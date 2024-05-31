@@ -21,4 +21,7 @@ def train_model(file_path, model_path, vectorizer_path):
     joblib.dump(vectorizer, vectorizer_path)
 
 if __name__ == "__main__":
+    # Train and save IMDB model
     train_model('data/imdb_preprocessed.csv', 'sentiment_model_imdb.joblib', 'vectorizer_imdb.joblib')
+    # Train and save Sentiment140 model
+    train_model('data/sentiment140_preprocessed.csv', 'sentiment_model_sent140.joblib', 'vectorizer_sent140.joblib')
