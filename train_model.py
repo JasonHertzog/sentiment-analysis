@@ -25,3 +25,5 @@ if __name__ == "__main__":
     train_model('data/imdb_preprocessed.csv', 'sentiment_model_imdb.joblib', 'vectorizer_imdb.joblib')
     # Train and save Sentiment140 model
     train_model('data/sentiment140_preprocessed.csv', 'sentiment_model_sent140.joblib', 'vectorizer_sent140.joblib')
+    # Train and save the combo model
+    train_model('data/combined_preprocessed.csv', 'sentiment_model_combined.joblib', 'vectorizer_combined.joblib')
